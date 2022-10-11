@@ -1,34 +1,3 @@
-# Laravel (ApiRestful) + MySQL
-
-## Versions of the backend tools
-
-1. MySQL 15.1 Distrib 10.9.3-MariaDB
-2. PHP 8.1.11 (cli).
-3. Composer 2.2.7
-4. Laravel Framework 9.34.0
-
-## Steps to run
-
-1. `git clone git@github.com:donald95/doityourself.git`
-2. `cd doityourself/`
-3. `composer install`
-4. `cp .env.example .env`
-5. `php artisan key:generate`
-6. `Set database connection into file .env`:
-   1. DB_CONNECTION=mysql
-   2. DB_HOST=127.0.0.1
-   3. DB_PORT=3306
-   4. DB_DATABASE=doityourself
-   5. DB_USERNAME=user
-   6. DB_PASSWORD=password123
-7. `php artisan migrate`
-8. `php artisan db:seed --class=TaskSeeder`
-9. `php artisan serve --port=8000`
-10. `➜ Exposed Local Link: http://localhost:8000/`
-
-## Database script file ➜ doityourself/database.sql
-
-```sql
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -154,5 +123,3 @@ COLLATE = utf8mb4_unicode_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-```

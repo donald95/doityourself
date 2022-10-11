@@ -18,7 +18,7 @@ class TaskFactory extends Factory
     {
         return [
             'description'  => fake()->sentence(),
-            'completed_at' => fake()->dateTime(),
+            'completed_at' => null,
             'created_at'   => fake()->dateTime(),
             'updated_at'   => fake()->dateTime(),
         ];
