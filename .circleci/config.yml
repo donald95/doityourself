@@ -67,7 +67,7 @@ jobs:
           name: Install MySQL CLI; Import dummy data; run an example query
           command: |
             sudo apt-get install default-mysql-client
-            mysql -h 127.0.0.1 -u user -ppassw0rd --execute="SELECT * FROM doityourself.tasks"
+            mysql -h 127.0.0.1 -u jdonald -p User_DoitYourself_1D2O3N4A5L6D --execute="SELECT * FROM doityourself.tasks"
 workflows:
   version: 2
   build-deploy:
