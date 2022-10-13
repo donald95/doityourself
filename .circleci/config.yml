@@ -33,6 +33,11 @@ jobs:
             done
             echo Failed waiting for MySQL && exit 1
 
+        - run:
+          name: Install MySQL CLI
+          command: |
+            sudo apt-get install default-mysql-client
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -64,9 +69,8 @@ jobs:
             php artisan db:seed --class=TaskSeeder
 
       - run:
-          name: Install MySQL CLI; run an example query
+          name: Run an example query
           command: |
-            sudo apt-get install default-mysql-client
             mysql --host=127.0.0.1 --user=jdonald --password=User_DoitYourself_1D2O3N4A5L6D doityourself --execute="SELECT * FROM doityourself.tasks"
 workflows:
   version: 2
