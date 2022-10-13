@@ -18,6 +18,7 @@ jobs:
           MYSQL_DATABASE: doityourself
           MYSQL_USER: jdonald
           MYSQL_PASSWORD: User_DoitYourself_1D2O3N4A5L6D
+          MYSQL_HOST: 127.0.0.1
 
     steps:
       - checkout
@@ -63,10 +64,6 @@ jobs:
           command: |
             php artisan migrate
             php artisan db:seed --class=TaskSeeder
-
-      - run:
-          name: Run an example query
-          command: mysql --host=127.0.0.1 --user=jdonald --password=User_DoitYourself_1D2O3N4A5L6D doityourself --execute="SELECT * FROM doityourself.tasks"
 
 workflows:
   version: 2
