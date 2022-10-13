@@ -31,7 +31,7 @@ jobs:
               echo -n .
               sleep 1
             done
-            echo Failed waiting for MySQL && exit 1      
+            echo Failed waiting for MySQL && exit 1
 
       # Download and cache dependencies
       - restore_cache:
@@ -59,15 +59,15 @@ jobs:
 
       - run:
           name: "Create database and run migration"
-          command: |            
+          command: |
             php artisan migrate
             php artisan db:seed --class=TaskSeeder
 
       - run:
-          name: Install MySQL CLI; Import dummy data; run an example query
+          name: Install MySQL CLI; run an example query
           command: |
             sudo apt-get install default-mysql-client
-            mysql -h 127.0.0.1 -u jdonald -p User_DoitYourself_1D2O3N4A5L6D --execute="SELECT * FROM doityourself.tasks"
+            mysql --host=127.0.0.1 --user=jdonald --password=User_DoitYourself_1D2O3N4A5L6D doityourself --execute="SELECT * FROM doityourself.tasks"
 workflows:
   version: 2
   build-deploy:
